@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Math Quiz | Login</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="math-symbols-bg" id="mathSymbolsBg"></div>
+    <div class="particles" id="particles"></div>
+    <div class="geometric-shapes" id="geometricShapes"></div>
+    <div class="mouse-trail" id="mouseTrail"></div>
+    <div class="math-banner" id="mathBanner">
+      x² + y² = z² &nbsp;&nbsp;•&nbsp;&nbsp; a² - b² = (a+b)(a-b)
+      &nbsp;&nbsp;•&nbsp;&nbsp; π ≈ 3.14159... &nbsp;&nbsp;•&nbsp;&nbsp; e ≈
+      2.71828... &nbsp;&nbsp;•&nbsp;&nbsp; f(x) = mx + b
+      &nbsp;&nbsp;•&nbsp;&nbsp; √(a²+b²) = c &nbsp;&nbsp;•&nbsp;&nbsp; sin²θ +
+      cos²θ = 1
+    </div>
+
+    <div class="auth-container">
+      <div class="login-logo">
+        <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background circle -->
+          <circle cx="50" cy="50" r="45" fill="url(#loginLogoGradient)" />
+          <circle cx="50" cy="50" r="40" fill="none" stroke="#fff" stroke-width="2" opacity="0.3"/>
+          <!-- Math symbols -->
+          <text x="50" y="35" text-anchor="middle" font-family="Times New Roman, serif" font-size="24" font-weight="bold" fill="#fff">π</text>
+          <text x="30" y="60" text-anchor="middle" font-family="Times New Roman, serif" font-size="20" font-weight="bold" fill="#fff">∑</text>
+          <text x="70" y="60" text-anchor="middle" font-family="Times New Roman, serif" font-size="18" font-weight="bold" fill="#fff">∞</text>
+          <text x="50" y="78" text-anchor="middle" font-family="Times New Roman, serif" font-size="16" font-weight="bold" fill="#fff">√</text>
+          <!-- Center dot -->
+          <circle cx="50" cy="50" r="5" fill="#f59e0b"/>
+          <defs>
+            <linearGradient id="loginLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#6366f1"/>
+              <stop offset="50%" style="stop-color:#8b5cf6"/>
+              <stop offset="100%" style="stop-color:#ec4899"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <h1 class="game-title">Math Quiz Game</h1>
+      <h2 id="formTitle">Login</h2>
+
+      <form id="loginForm">
+        <input
+          type="text"
+          id="loginEmail"
+          placeholder="Email"
+          required
+          minlength="5"
+          maxlength="255"
+        />
+
+        <input
+          type="password"
+          id="loginPassword"
+          placeholder="Password"
+          required
+          minlength="4"
+          maxlength="50"
+        />
+
+        <button type="submit">Login</button>
+
+        <p class="switch">
+          No account?
+
+          <button type="button" onclick="showRegister()">Register</button>
+        </p>
+        <p class="switch">
+          <button type="button" onclick="showRestore()" class="restore-btn">
+            ♻️ Restore Account
+          </button>
+        </p>
+      </form>
+
+      <form id="restoreForm" class="hidden">
+        <p class="restore-info">
+          Enter your email and password to restore your deleted account.
+        </p>
+        <input
+          type="text"
+          id="restoreEmail"
+          placeholder="Email"
+          required
+          minlength="5"
+          maxlength="255"
+        />
+
+        <input
+          type="password"
+          id="restorePassword"
+          placeholder="Password"
+          required
+          minlength="4"
+          maxlength="50"
+        />
+
+        <button type="submit">♻️ Restore & Login</button>
+
+        <p class="switch">
+          <button type="button" onclick="showLogin()">Back to Login</button>
+        </p>
+      </form>
+
+      <form id="registerForm" class="hidden">
+        <input
+          type="text"
+          id="regName"
+          placeholder="Full Name"
+          required
+          minlength="2"
+          maxlength="50"
+          pattern="[a-zA-Z\s]+"
+          title="Name should only contain letters and spaces"
+        />
+
+        <input
+          type="email"
+          id="regEmail"
+          placeholder="Email"
+          required
+          minlength="5"
+          maxlength="255"
+        />
+
+        <input
+          type="password"
+          id="regPassword"
+          placeholder="Password"
+          required
+          minlength="4"
+          maxlength="50"
+          pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{4,}"
+          title="Password must contain at least one uppercase, one lowercase, and one number"
+        />
+
+        <input
+          type="password"
+          id="regConfirm"
+          placeholder="Confirm Password"
+          required
+          minlength="4"
+          maxlength="50"
+        />
+
+        <button type="submit">Create Account</button>
+
+        <p class="switch">
+          Already have an account?
+
+          <span onclick="showLogin()">Login</span>
+        </p>
+      </form>
+
+      <p id="errorMessage" class="error-message"></p>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
